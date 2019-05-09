@@ -37,3 +37,22 @@ def bulk_tweet_shortener(array)
     puts word_substituter(tweet)
   end
 end
+
+def selective_tweet_shortener(tweet)
+  if tweet.length > 140
+    word_substituter(tweet)
+  else
+    tweet
+  end
+end
+
+ def shortened_tweet_truncator(tweet)
+  short_tweet = selective_tweet_shortener(tweet)
+  if short_tweet.length > 140
+    truncated = short_tweet[0...140]
+    truncated[137...140] = "..."
+    truncated
+  else
+    tweet
+  end
+end
